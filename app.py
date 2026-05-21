@@ -70,30 +70,40 @@ st.markdown("""
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
 
-/* ── Fix botón sidebar: ocultar texto roto, reemplazar con ícono CSS ─────────── */
+/* ── Fix botón sidebar: ocultar texto roto "double_arrow_right" ──────────────── */
 [data-testid="collapsedControl"] {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 2rem !important;
-    height: 2rem !important;
-    min-width: 2rem !important;
-    background: rgba(17,24,39,0.95) !important;
-    border: 1px solid rgba(96,165,250,0.30) !important;
+    position: relative !important;
+    overflow: visible !important;
+    background: rgba(17,24,39,0.90) !important;
+    border: 1px solid rgba(96,165,250,0.25) !important;
     border-radius: 0 8px 8px 0 !important;
-    cursor: pointer !important;
-    margin-top: 0.75rem !important;
 }
-[data-testid="collapsedControl"] span {
-    display: none !important;
+/* Ocultar TODO el texto dentro del botón */
+[data-testid="collapsedControl"] *,
+[data-testid="collapsedControl"] span,
+[data-testid="collapsedControl"] svg,
+[data-testid="collapsedControl"] p {
+    visibility: hidden !important;
+    font-size: 0 !important;
+    color: transparent !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
 }
-[data-testid="collapsedControl"]::after {
-    content: '›';
-    font-size: 1.4rem !important;
-    line-height: 1 !important;
-    color: #60A5FA !important;
-    font-family: system-ui, sans-serif !important;
+/* Poner ícono propio encima */
+[data-testid="collapsedControl"]::before {
+    content: '›' !important;
+    visibility: visible !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    font-size: 1.5rem !important;
     font-weight: 300 !important;
+    color: #60A5FA !important;
+    font-family: system-ui, Arial, sans-serif !important;
+    pointer-events: none !important;
+    line-height: 1 !important;
 }
 
 /* ── Variables de color — Dark pero con más vida ────────────────────────────── */
