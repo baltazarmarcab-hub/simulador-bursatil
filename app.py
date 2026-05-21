@@ -66,14 +66,34 @@ st.set_page_config(
 # ── Design System: Dark Mode OLED · IBM Plex Sans · Fintech Palette ──────────
 st.markdown("""
 <style>
-/* ── Google Fonts: IBM Plex Sans + Material Symbols ────────────────────────── */
+/* ── Google Fonts: IBM Plex Sans ───────────────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 
-/* ── Fix ícono sidebar (double_arrow_right) ─────────────────────────────────── */
+/* ── Fix botón sidebar: ocultar texto roto, reemplazar con ícono CSS ─────────── */
+[data-testid="collapsedControl"] {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 2rem !important;
+    height: 2rem !important;
+    min-width: 2rem !important;
+    background: rgba(17,24,39,0.95) !important;
+    border: 1px solid rgba(96,165,250,0.30) !important;
+    border-radius: 0 8px 8px 0 !important;
+    cursor: pointer !important;
+    margin-top: 0.75rem !important;
+}
 [data-testid="collapsedControl"] span {
-    font-family: 'Material Symbols Rounded' !important;
+    display: none !important;
+}
+[data-testid="collapsedControl"]::after {
+    content: '›';
+    font-size: 1.4rem !important;
+    line-height: 1 !important;
+    color: #60A5FA !important;
+    font-family: system-ui, sans-serif !important;
+    font-weight: 300 !important;
 }
 
 /* ── Variables de color — Dark pero con más vida ────────────────────────────── */
