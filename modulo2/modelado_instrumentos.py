@@ -187,7 +187,7 @@ def sensibilidad_convertible_crisis(
         "Caída convertible (%)": round(caida_convertible, 1),
         "Protección del bono (pp)": round(caida_accion_pura - caida_convertible, 1),
         "Componente bono crisis (MXN)": crisis["Componente Bono (MXN)"],
-        "Componente opción crisis (MXN)": crisis["Componente Opción Call (MXN)"],
+        "Componente opción crisis (MXN)": crisis["Componente Opción de Compra (MXN)"],
         "Conclusión": (
             f"El componente bono absorbió {round(caida_accion_pura - caida_convertible, 1)} pp "
             f"de la caída. El instrumento cayó solo {round(abs(caida_convertible), 1)}% "
